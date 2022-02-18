@@ -3,8 +3,7 @@
 In this projects, I will use a relational database to create the data structure for a vet clinic.
 
 
-👤 **Author**
-:woman:Annah Tumworobere
+👤 **Author**:woman:Annah Tumworobere
 
 - [Github](https://github.com/Tumworobere)
 - [Twitter](https://twitter.com/Tannah2090)
