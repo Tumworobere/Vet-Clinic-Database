@@ -10,4 +10,4 @@ CREATE TABLE animals (
 );
 
 ALTER TABLE animals
-ADD species varchar(200);
+ADD species varchar(100);
