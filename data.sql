@@ -11,6 +11,7 @@ INSERT INTO animals(name,date_of_birth,escape_attempts,neutered,weight_Kg) VALUE
 INSERT INTO animals(name,date_of_birth,escape_attempts,neutered,weight_Kg) VALUES ('Boarmon', '2005-06-07' , 7 , true , 20.4);
 INSERT INTO animals(name,date_of_birth,escape_attempts,neutered,weight_Kg) VALUES ('Blossom', '1998-10-13' , 3 , true , 17);
 
+
 ----------------------------------------------------------------------------------------------------------------------------------
 INSERT INTO owners(full_name,age) VALUES ('Sam Smith',34),('Jennifer Orwell',19),
 ('Bob',45),('Melody Pond',77),('Dean Winchester',14),('Jodie Whittaker',38);
@@ -55,3 +56,4 @@ WHERE name IN ('Charmander','Squirtle','Blossom');
 UPDATE animals
 SET owner_id = (SELECT id FROM owners WHERE full_name = 'Dean Winchester')
 WHERE name IN ('Angemon','Boarmon');
+
