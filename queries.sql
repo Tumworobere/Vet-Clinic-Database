@@ -8,17 +8,18 @@ SELECT * from animals WHERE neutered=true;
 SELECT * from animals WHERE NOT name='Gabumon';
 SELECT * from animals WHERE weight_kg >= 10.4 AND weight_kg <= 17.3;
 
+
 /* Inside a transaction update the animals table by setting the species column to unspecified. Verify that change was made.
    Then roll back the change and verify that species columns went back to the state before tranasction. */
 BEGIN;
 UPDATE animals
 SET species = 'unspecified';
 
-TABLE animals;
+SELECT species from animals;
 
 ROLLBACK;
 
-TABLE animals;
+SELECT species from animals;
 
 /* Inside a transaction:
 Update the animals table by setting the species column to digimon for all animals that have a name ending in mon.
@@ -38,7 +39,7 @@ WHERE species IS NULL;
 
 COMMIT;
 
-TABLE animals;
+SELECT species from animals;
 
 /* Now, take a deep breath and... Inside a transaction delete all records in the animals table, then roll back the transaction. */
 
@@ -48,7 +49,7 @@ TABLE animals; /* TABLE IS EMPTY*/
 ROLLBACK;
 
 /* After the roll back verify if all records in the animals table still exist. After that you can start breath as usual ;) */
-TABLE animals; /* DATA IS BACK */
+SELECT species from animals; /* DATA IS BACK */
 
 
 /* Inside a transaction:
@@ -75,7 +76,7 @@ UPDATE animals
 SET weight_Kg = weight_Kg * (-1);
 WHERE weight_Kg < 0;
 
-TABLE animals; /* All weights are positive */;
+SELECT species from animals; /* All weights are positive */;
 
 COMMIT;
 
@@ -109,3 +110,4 @@ species, AVG(escape_attempts)
 FROM animals
 WHERE date_of_birth BETWEEN '01-01-1990' AND '01-01-2000'
 GROUP BY species
+
