@@ -1,12 +1,13 @@
 /*Queries that provide answers to the questions from all projects.*/
 SELECT * from animals WHERE name LIKE '%mon';
-SELECT name from animals WHERE date_of_birth BETWEEN '1-1-2016' AND '1-1-2019';
+SELECT name from animals WHERE date_of_birth BETWEEN '1-1-2016' AND '31-12-2019';
 SELECT name from animals WHERE neutered='true' AND escape_attempts < 3;
 SELECT date_of_birth from animals WHERE name='Agumon' OR name='Pickachu';
 SELECT name,escape_attempts from animals WHERE weight_Kg > 10.5;
 SELECT * from animals WHERE neutered=true;
 SELECT * from animals WHERE NOT name='Gabumon';
 SELECT * from animals WHERE weight_kg >= 10.4 AND weight_kg <= 17.3;
+
 
 /* Inside a transaction update the animals table by setting the species column to unspecified. Verify that change was made.
    Then roll back the change and verify that species columns went back to the state before tranasction. */
@@ -110,6 +111,7 @@ FROM animals
 WHERE date_of_birth BETWEEN '01-01-1990' AND '01-01-2000'
 GROUP BY species
 
+
 --------------------------------------------------------------------------------------------------------------------------
 -- What animals belong to Melody Pond?
 
@@ -155,6 +157,7 @@ JOIN owners ON animals.owner_id = owners.id
 GROUP BY full_name
 ORDER BY c DESC
 FETCH FIRST 1 ROWS WITH TIES;
+
 ------------------------------------------------------------------------------------------------------------------
 -- Who was the last animal seen by William Tatcher?
 SELECT animals.name FROM animals
@@ -237,3 +240,4 @@ WHERE vets.name = 'Maisy Smith'
 GROUP BY species.name
 ORDER BY c DESC
 FETCH FIRST 1 ROWS WITH TIES;
+
