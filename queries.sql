@@ -205,11 +205,19 @@ FETCH FIRST 1 ROWS WITH TIES;
 
 -- Details for most recent visit: animal information, vet information, and date of visit.
 
-SELECT * FROM animals
-JOIN visits ON animals.id = visits.animal_id
+SELECT
+	animals.date_of_birth as animal_dob,
+	animals.escape_attempts,
+	animals.neutered,
+	animals.weight_kg as animal_weight,
+	vets.name as vet_name,
+	vets.age as vet_age,
+	vets.date_of_graduation
+from visits
+JOIN animals ON animals.id = visits.animal_id
 JOIN vets ON vets.id = visits.vet_id
 ORDER BY visite_date DESC
-FETCH FIRST 1 ROWS WITH TIES;
+LIMIT 1;
 
 -- How many visits were with a vet that did not specialize in that animal's species?
 
