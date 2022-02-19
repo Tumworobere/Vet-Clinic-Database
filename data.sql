@@ -217,4 +217,3 @@ VALUES
     (SELECT id FROM vets WHERE name = 'William Tatcher'),
     '2021-01-11'
     );
-    
