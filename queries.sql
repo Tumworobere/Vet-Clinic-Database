@@ -155,6 +155,14 @@ JOIN owners ON animals.owner_id = owners.id
 GROUP BY full_name
 ORDER BY c DESC
 FETCH FIRST 1 ROWS WITH TIES;
+------------------------------------------------------------------------------------------------------------------
+-- Who was the last animal seen by William Tatcher?
+SELECT animals.name FROM animals
+JOIN visits ON animals.id = visits.animal_id
+JOIN vets ON vets.id = visits.vet_id
+WHERE vets.name = 'William Tatcher'
+ORDER BY visits.visite_date DESC
+FETCH FIRST 1 ROWS WITH TIES;
 
 
 -- How many different animals did Stephanie Mendez see?
